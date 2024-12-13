@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Your Goals</title>
+    <link rel="stylesheet" href="goals.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Set Your Health Goals</h1>
+    </header>
+    <main class="main-content">
+        <form id="goal-form" class="goal-form">
+            <label for="weight">Enter Your Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+
+            <label for="calories">Target Daily Calories:</label>
+            <input type="number" id="calories" name="calories" required>
+
+            <label for="protein">Target Protein (g):</label>
+            <input type="number" id="protein" name="protein" required>
+
+            <label for="carbs">Target Carbohydrates (g):</label>
+            <input type="number" id="carbs" name="carbs" required>
+            <label for="fats">Target Fats (g):</label>
+            <input type="number" id="fats" name="fats" required>
+
+            <button type="button" id="submit" onclick="submitGoals()">Get Recipes</button>
+        </form>
+    </main>
+    <hr>
+    <footer id="footer_goals">
+        <p>Copyright &copy; Recify. All right reserved</p> 
+    </footer>
+    <script src="./index.js">
+   
+        </script>
+</body>
+</html>

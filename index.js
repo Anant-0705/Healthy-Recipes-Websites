@@ -182,3 +182,73 @@ function closeBtn(){
   document.querySelector(".eleven-meal-detail").style.display ="none"
 }
 
+// Handle goal form submission
+document.getElementById("goal-form")?.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const weight = document.getElementById("weight").value;
+  const calories = document.getElementById("calories").value;
+  const protein = document.getElementById("protein").value;
+  const carbs = document.getElementById("carbs").value;
+  const fats = document.getElementById("fats").value;
+
+  const userGoals = { weight, calories, protein, carbs, fats };
+  localStorage.setItem("userGoals", JSON.stringify(userGoals));
+  alert("Goals saved! Recipes will be tailored to your targets.");
+  // Redirect to a recipes page or refresh the form
+});
+const getrecipes=document.getElementById('submit').addEventListener('click',function(){
+window.location.href="index.html"
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const userGoals = JSON.parse(localStorage.getItem('userGoals'));
+
+  if (userGoals) {
+      const { calories } = userGoals;
+
+      // Example dishes array
+      const dishes = [
+          { name: 'Sisig', calories: 300 },
+          { name: 'Adobo', calories: 400 },
+          { name: 'Sinigang', calories: 350 },
+          { name: 'Omelette', calories: 250 },
+          { name: 'Lumpia', calories: 200 },
+          { name: 'Longaniza', calories: 450 },
+          // Add more dishes as needed
+      ];
+
+      // Filter dishes based on user's calorie goal
+      const filteredDishes = dishes.filter(dish => dish.calories <= calories);
+      const resultDiv = document.querySelector('.result');
+      resultDiv.innerHTML = '<h1>Your Recommended Dishes:</h1>';
+
+      if (filteredDishes.length > 0) {
+          filteredDishes.forEach(dish => {
+              resultDiv.innerHTML += `<p>${dish.name} - ${dish.calories} calories</p>`;
+          });
+      } else {
+          resultDiv.innerHTML += '<p>No dishes found that meet your criteria.</p>';
+      }
+  } else {
+      const resultDiv = document.querySelector('.result');
+      resultDiv.innerHTML = '<p>Please set your goals first.</p>';
+  }
+});
+function submitGoals() {
+  const weight = document.getElementById('weight').value;
+  const calories = document.getElementById('calories').value;
+  const protein = document.getElementById('protein').value;
+  const carbs = document.getElementById('carbs').value;
+  const fats = document.getElementById('fats').value;
+
+  // Store the data in localStorage
+  localStorage.setItem('userGoals', JSON.stringify({
+      weight,
+      calories,
+      protein,
+      carbs,
+      fats
+  }));
+
+  // Redirect to index.html
+  window.location.href = 'index.html';
+}
