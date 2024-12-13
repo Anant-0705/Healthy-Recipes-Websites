@@ -713,6 +713,35 @@
 <!--Script for Javascript-->
 <script src="index.js">
 
+document.addEventListener('DOMContentLoaded', function() {
+    const userGoals = JSON.parse(localStorage.getItem('userGoals'));
+
+    if (userGoals) {
+        // Example logic to filter dishes based on user goals
+        const { calories, protein, carbs, fats } = userGoals;
+
+        // Here you would implement your logic to filter and display dishes
+        // For demonstration, let's log the goals
+        console.log('User Goals:', userGoals);
+
+        // Example: Display dishes based on calories
+        const dishes = [
+            { name: 'Sisig', calories: 300 },
+            { name: 'Adobo', calories: 400 },
+            { name: 'Sinigang', calories: 350 },
+            { name: 'Omelette', calories: 250 },
+            // Add more dishes as needed
+        ];
+
+        const filteredDishes = dishes.filter(dish => dish.calories <= calories);
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = '<h1>Your Recommended Dishes:</h1>';
+
+        filteredDishes.forEach(dish => {
+            resultDiv.innerHTML += `<p>${dish.name} - ${dish.calories} calories</p>`;
+        });
+    }
+});
 
 </script>
 </body>

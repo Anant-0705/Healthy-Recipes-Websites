@@ -1,51 +1,140 @@
-#footer_goals{
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding-left: 1.2rem;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    color: #0e771c;
+}
+
+.nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #333;
+    font-size: 1em;
+}
+
+.nav .login-btn {
+    padding: 5px 10px;
+    background-color: #0e771c;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
     display: flex;
-    color: #6FFFE9;
-    background-color: #1C2541;
-  }
-  .header{
     align-items: center;
-    justify-content: center;
-    padding-left: 1.2rem;
-    display: flex;
-    color: #6FFFE9;
-    background-color: #1C2541;
-  }
-  header {
-    text-align: center;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    flex-direction: column;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-  }
-  
-  form label, form input, form button {
-    margin: 10px 0;
-  }
-  
-  form button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.hero-text h2 span {
+    color: #0e771c;
+}
+
+.hero-text p {
+    font-size: 1em;
+    margin: 20px 0;
+    color: #666;
+}
+
+.goal-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.goal-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.goal-form button {
+    background-color: #0e771c;
+    color: #fff;
+    padding: 10px 15px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #218838;
-  }
+}
+
+/* Hero Image */
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.hero-image .badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #0e771c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Food Carousel */
+.food-carousel {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.food-item {
+    margin: 0 15px;
+    text-align: center;
+}
+
+.food-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.social-btns a {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 1.5em;
+}
