@@ -199,11 +199,11 @@ document.getElementById("goal-form")?.addEventListener("submit", function (event
 const getrecipes=document.getElementById('submit').addEventListener('click',function(){
 window.location.href="index.html"
 });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const userGoals = JSON.parse(localStorage.getItem('userGoals'));
 
   if (userGoals) {
-      const { calories } = userGoals;
+      const calorieGoal = Number(userGoals.calories); // Convert calories to a number
 
       // Example dishes array
       const dishes = [
@@ -217,7 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
       ];
 
       // Filter dishes based on user's calorie goal
-      const filteredDishes = dishes.filter(dish => dish.calories <= calories);
+      const filteredDishes = dishes.filter(dish => dish.calories <= calorieGoal);
+
       const resultDiv = document.querySelector('.result');
       resultDiv.innerHTML = '<h1>Your Recommended Dishes:</h1>';
 
@@ -233,22 +234,3 @@ document.addEventListener('DOMContentLoaded', function() {
       resultDiv.innerHTML = '<p>Please set your goals first.</p>';
   }
 });
-function submitGoals() {
-  const weight = document.getElementById('weight').value;
-  const calories = document.getElementById('calories').value;
-  const protein = document.getElementById('protein').value;
-  const carbs = document.getElementById('carbs').value;
-  const fats = document.getElementById('fats').value;
-
-  // Store the data in localStorage
-  localStorage.setItem('userGoals', JSON.stringify({
-      weight,
-      calories,
-      protein,
-      carbs,
-      fats
-  }));
-
-  // Redirect to index.html
-  window.location.href = 'index.html';
-}
